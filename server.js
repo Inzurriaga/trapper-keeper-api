@@ -1,9 +1,11 @@
 const express = require("express")
 const app = express()
-
+const cors = require('cors')
+app.use(cors())
 app.use(express.json())
 
-app.locals.notes = []
+app.locals.notes = [{id: 1242, title: "test", body: [{context: "testone", isChecked: false}, {context: "testtwo", isChecked: false}, {context: "testthree", isChecked: true}]}
+]
 
 app.listen("3000", () => {
     console.log("Server is running on http://localhost:3000")
