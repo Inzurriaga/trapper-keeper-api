@@ -5,7 +5,7 @@ const cors = require('cors')
 app.use(cors())
 app.use(express.json())
 
-app.locals.notes = [{id: 1242, title: "test", body: [{context: "testone", isChecked: false}, {context: "testtwo", isChecked: false}, {context: "testthree", isChecked: true}]}
+app.locals.notes = [{id: 1242, title: "test", listItem: [{text: "testone", isChecked: false}, {text: "testtwo", isChecked: false}, {text: "testthree", isChecked: true}]}
 ]
 
 app.get("/api/v1/notes", (request, response) => {
