@@ -5,7 +5,7 @@ const cors = require('cors')
 app.use(cors())
 app.use(express.json())
 
-app.locals.notes = [{id: 1242, title: "test", listItem: [{text: "testone", isChecked: false}, {text: "testtwo", isChecked: false}, {text: "testthree", isChecked: true}]}
+app.locals.notes = [{id: 1242, title: "test", listItems: [{text: "testone", isChecked: false}, {text: "testtwo", isChecked: false}, {text: "testthree", isChecked: true}]}
 ]
 
 app.get("/api/v1/notes", (request, response) => {
@@ -16,7 +16,7 @@ app.post("/api/v1/notes", (request, response) => {
     const { notes } = app.locals
     const newNote = request.body
     if(Object.keys(newNote).length === 0 ) return response.status(422).json('No request body found');
-    notes.push({title: newNote.title, listItem: newNote.listItem , id: Date.now()})
+    notes.push({title: newNote.title, listItems: newNote.listItems , id: Date.now()})
     response.status(201).json(notes[notes.length - 1])
 })
 
