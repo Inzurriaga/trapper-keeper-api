@@ -20,23 +20,26 @@ app.post("/api/v1/notes", (request, response) => {
     response.status(201).json(notes[notes.length - 1])
 })
 
-// check if we need both patch and put or just require user to update both ?????????
-app.patch("/api/v1/notes/:id", (request, response) => {
-
+app.put("/api/v1/notes/:id", (request, response) => {
+	console.log('backend fires')
+	const { id } = request.params;
+	const noteIndex = app.locals.notes.find(note => {
+		return note.id == id
+	})
+	console.log(noteIndex)
+	if(!noteIndex){
+		return response.sendStatus(404)
+	}else {
+		const index = app.locals.notes.indexOf(noteIndex)
+      app.locals.notes.splice(index, 1, request.body)
+		return response.status(200).json('Successfully updated note')
+	}
 })
 
-// app.put("/api/v1/notes/:id", (request, response) => {
-// 	const { id } = request.params;
-// 	const updatedNotes =
-// })
-
 app.delete("/api/v1/notes/:id", (request, response) => {
-		console.log('backend delete fires')
-		console.log(request.params.id)
 		const { id } = request.params
 		const updatedNotes = app.locals.notes.filter(note => note.id != id);
 		if(updatedNotes === app.locals.notes) return response.sendStatus(422)
-		console.log("im working")
 		app.locals.notes = updatedNotes
 		return response.sendStatus(204)
 })
