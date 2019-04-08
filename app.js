@@ -4,17 +4,7 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
-app.locals.notes = [
-  {
-    id: 1242,
-    title: "test",
-    listItems: [
-      { text: "testone", isChecked: false },
-      { text: "testtwo", isChecked: false },
-      { text: "testthree", isChecked: true }
-    ]
-  }
-];
+app.locals.notes = [];
 
 app.get("/api/v1/notes", (request, response) => {
   response.status(200).json(app.locals.notes);
@@ -57,5 +47,8 @@ app.delete("/api/v1/notes/:id", (request, response) => {
   app.locals.notes = updatedNotes;
   return response.sendStatus(204);
 });
+app.patch("/api/v1/notes", (request, response) => {
+  app.locals.notes = request.body
+})
 
 export default app;
