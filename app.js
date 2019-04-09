@@ -47,5 +47,8 @@ app.delete("/api/v1/notes/:id", (request, response) => {
   app.locals.notes = updatedNotes;
   return response.sendStatus(204);
 });
+app.patch("/api/v1/notes", (request, response) => {
+  app.locals.notes = request.body
+})
 
 export default app;
