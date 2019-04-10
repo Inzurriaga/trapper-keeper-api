@@ -41,9 +41,6 @@
 ### Welcome View
 <img width="1377" alt="Screen Shot 2019-04-10 at 6 28 01 AM" src="https://user-images.githubusercontent.com/39415039/55887448-c3bb3e00-5b6a-11e9-94a6-6df7b8776970.png">
 
-### Edit Note View
-<img width="1382" alt="Screen Shot 2019-04-10 at 8 20 44 AM" src="https://user-images.githubusercontent.com/39415039/55886808-a33eb400-5b69-11e9-9730-88905b78be46.png">
-
 ### Card Display View
 <img width="1390" alt="Screen Shot 2019-04-10 at 8 25 51 AM" src="https://user-images.githubusercontent.com/39415039/55887222-5d362000-5b6a-11e9-9ab2-2206be1747b6.png">
 
